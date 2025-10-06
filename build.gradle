@@ -9,13 +9,15 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    testImplementation
+    testImplementation (
+            "org.junit.jupiter:junit-jupiter:5.9.2"
+    )
 }
 /*dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
-
+*/
 test {
     useJUnitPlatform()
-}*/
+}
