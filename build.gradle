@@ -2,21 +2,36 @@ plugins {
     id 'java'
 }
 
+group 'org.example'
+version '1.0-SNAPSHOT'
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Selenide
-    testImplementation 'com.codeborne:selenide:6.16.2'
-
-    // WebDriverManager для автоматической настройки драйверов
-    testImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
+    // Selenide (актуальная версия на октябрь 2025)
+    testImplementation 'com.codeborne:selenide:7.1.0'
 
     // JUnit 5
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+
+    // WebDriverManager (автоматическое управление ChromeDriver)
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
+
+    // SLF4J + Logback
+    implementation 'org.slf4j:slf4j-api:2.0.12'
+    implementation 'ch.qos.logback:logback-classic:1.4.14'
+    testImplementation 'com.codeborne:selenide:7.1.0'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.24.0'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.17'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'com.codeborne:selenide:7.4.0' // или актуальная версия
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0' // ← важно: 5.8.0+
+    testImplementation 'org.slf4j:slf4j-simple:2.0.13' // ← убирает SLF4J warning
 }
 
 test {
     useJUnitPlatform()
+    systemProperty 'selenide.browser', 'chrome'
 }
